@@ -10,11 +10,11 @@
   "dependencies": {
     "@architect/architect": "^5.5.8",
     "@begin/data": "latest",
-    "tiny-json-http": "latest"
+    "tiny-json-http": "^7.1.2"
   },
   "devDependencies": {
-    "aws-sdk": "^2.421.0",
-    "eslint": "^5.15.1",
+    "aws-sdk": "^2.435.0",
+    "eslint": "^5.16.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
   }

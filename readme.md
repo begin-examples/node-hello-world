@@ -2,9 +2,9 @@
 
 
 ## Getting started
-- To start a local dev server: `npm start`
-- To lint your code: `npm run lint`
-- To run your tests: `npm t`
+- Start the local dev server: `npm start`
+- Lint your code: `npm run lint`
+- Run your tests: `npm t`
 
 
 ## Reference

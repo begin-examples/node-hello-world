@@ -1,13 +1,13 @@
-# Automagical `public` directory
+# Host static assets with `public/`
 
-The `public` directory is a great place to add (compiled) JS and CSS, images, gifs, or any other files you want to publicly accessible.
+The `public` directory is a great place to add (compiled) JS and CSS, images, gifs, or any other files you want to to make publicly accessible in your app.
 
-Each time your app deploys, the contents of this folder will automatically be published to S3 and our CDN.
+Each time your app deploys, the contents of this folder will automatically be published to S3 and Begin's CDN.
 
 
 ## Use caution!
 
-The full contents of this folder public will be copied to S3 with each deploy, overwriting any existing S3 files with the same name.
+The full contents of this folder will be copied with each deploy, overwriting any existing files with the same name.
 
 
 ## Note

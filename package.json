@@ -4,12 +4,13 @@
   "description": "Begin basic Hello World! app",
   "scripts": {
     "lint": "eslint src --ignore-pattern node_modules --fix",
-    "test": "NODE_ENV=testing tape test/*-test.js | tap-spec",
-    "start": "NODE_ENV=testing ARC_LOCAL=1 npx sandbox"
+    "test": "cross-env NODE_ENV=testing tape test/*-test.js | tap-spec",
+    "start": "cross-env NODE_ENV=testing ARC_LOCAL=1 npx sandbox"
   },
   "devDependencies": {
     "@architect/sandbox": "latest",
     "@begin/data": "latest",
+    "cross-env": "^5.2.1",
     "eslint": "^6.3.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0",

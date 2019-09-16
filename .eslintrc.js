@@ -7,7 +7,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018
   },
-  'rules': {
+  rules: {
     semi: ['error', 'never'],
     // enable additional rules
     'linebreak-style': ['error', 'unix'],

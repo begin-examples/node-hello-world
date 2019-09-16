@@ -1,4 +1,4 @@
-# Hey, it's a Begin app! ✨
+# Begin basic Hello World! app
 
 
 ## Getting started

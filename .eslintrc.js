@@ -1,14 +1,14 @@
 module.exports = {
-  'env': {
-    'node':true,
-    'es6': true
+  env: {
+    node: true,
+    es6: true
   },
-  'extends': 'eslint:recommended',
-  'parserOptions': {
-    'ecmaVersion': 2018
+  extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 2018
   },
-  'rules': {
-    'semi': ["error", "never"],
+  rules: {
+    semi: ['error', 'never'],
     // enable additional rules
     'linebreak-style': ['error', 'unix'],
     // node specific
@@ -22,6 +22,7 @@ module.exports = {
     'no-inner-declarations': 'off',
     'no-redeclare': 'off',
     // style specific
-    'no-trailing-spaces': 'error'
+    'no-trailing-spaces': 'error',
+    'no-unused-vars': ['error', { 'args': 'none' }]
   }
-}                      
+}

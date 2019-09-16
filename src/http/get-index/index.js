@@ -2,7 +2,7 @@
 // let data = require('@begin/data')
 
 // Add secure sessions, middleware, and more: https://docs.begin.com/en/functions/http/
-// let begin = require('@architect/functions')
+// let arc = require('@architect/functions')
 
 // TODO: modify the body object!
 let body = `
@@ -30,9 +30,8 @@ let body = `
 `
 
 exports.handler = async function http(req) {
-  console.log(req)
   return {
-    type: 'text/html; charset=utf8',
+    headers: {'content-type': 'text/html; charset=utf8'},
     body
   }
 }
@@ -40,19 +39,21 @@ exports.handler = async function http(req) {
 // Example responses
 
 /* Forward requester to a new path
-exports.handler = async function http(req) {
+exports.handler = async function http (req) {
   return {
-    status: 302,
-    location: '/about',
+    statusCode: 302,
+    headers: {'location': '/about'}
   }
 }
 */
 
 /* Respond with successful resource creation, CORS enabled
-exports.handler = async function http(req) {
+let arc = require('@architect/functions')
+exports.handler = arc.http.async (http)
+async function http (req) {
   return {
-    status: 201,
-    type: 'application/json',
+    statusCode: 201,
+    headers: {'content-type': 'application/json; charset=utf8'},
     body: JSON.stringify({ok: true}),
     cors: true,
   }
@@ -60,11 +61,10 @@ exports.handler = async function http(req) {
 */
 
 /* Deliver client-side JS
-exports.handler = async function http(req) {
+exports.handler = async function http (req) {
   return {
-    type: 'text/javascript',
+    headers: {'content-type': 'text/javascript; charset=utf8'},
     body: 'console.log("Hello world!")',
   }
 }
 */
-

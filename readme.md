@@ -1,5 +1,6 @@
 # Begin basic Hello World! app
 
+$BADGE
 
 ## Getting started
 - Start the local dev server: `npm start`

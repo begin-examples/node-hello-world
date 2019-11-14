@@ -25,8 +25,8 @@ test('get / (continuation-passing style)', t => {
   function win (err, result) {
     if (err) {
       t.fail(err)
-      if (err.code === 'ECONNREFUSED')
-        console.log(connectionRefused)
+      if (err.message.includes('404') || err.code === 'ECONNREFUSED')
+        console.log(didNotLoad)
     } else {
       t.ok(result, 'Got result', console.log(result.body.toString().substring(0,50) + '...'))
     }
@@ -41,8 +41,8 @@ test('get / (promise style)', t => {
     })
     .catch(function fail (err) {
       t.fail(err)
-      if (err.code === 'ECONNREFUSED')
-        console.log(connectionRefused)
+      if (err.message.includes('404') || err.code === 'ECONNREFUSED')
+        console.log(didNotLoad)
     })
 })
 
@@ -53,8 +53,8 @@ test('get / (async/await style)', async t => {
     t.ok(result, 'Got result:', console.log(result.body.toString().substring(0,50) + '...'))
   } catch (err) {
     t.fail(err)
-    if (err.code === 'ECONNREFUSED')
-      console.log(connectionRefused)
+    if (err.message.includes('404') || err.code === 'ECONNREFUSED')
+      console.log(didNotLoad)
   }
 })
 
@@ -71,4 +71,4 @@ test('Shut down sandbox', t=> {
   })
 })
 
-let connectionRefused = 'You are likely seeing connection refused errors because you do not have a `get /` HTTP function and also do not have a `public/index.html` file\nPlease make use of one or the other to respond to web requests at the root of your application'
+let didNotLoad = 'You are likely seeing 404 or ECONNREFUSED errors because you do not have a `get /` HTTP function and also do not have a `public/index.html` file\nPlease make use of one or the other to respond to web requests at the root of your application'

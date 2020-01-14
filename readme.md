@@ -1,6 +1,6 @@
-<img src="https://static.begin.app/node-hello-world/readme-banner.png" width="561">
+<img src="https://static.begin.app/node-hello-world/readme-banner.png" width="813">
 
-\$BADGE
+$BADGE
 
 ## Deploy your own
 

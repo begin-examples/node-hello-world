@@ -5,7 +5,12 @@
   "arc": {
     "app": "hello-world",
     "http": [
-      {"/":{"method":"any", "src": "."}}
+      {
+        "/": {
+          "method": "any",
+          "src": "."
+        }
+      }
     ]
   },
   "scripts": {

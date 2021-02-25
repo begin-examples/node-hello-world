@@ -1,11 +1,6 @@
-// Add simple, fast, scalable persistence: https://docs.begin.com/en/data/begin-data/
-// let data = require('@begin/data')
+exports.handler = async function http(req) {
 
-// Add secure sessions, middleware, and more: https://docs.begin.com/en/functions/http/
-// let arc = require('@architect/functions')
-
-// TODO: modify the body object!
-let body = `
+  let html = `
 <!doctype html>
 <html lang=en>
   <head>
@@ -26,21 +21,19 @@ let body = `
     </p>
 
   </body>
-</html>
-`
+</html>`
 
-exports.handler = async function http(req) {
   return {
     headers: {
       'content-type': 'text/html; charset=utf8',
       'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
     },
     statusCode: 200,
-    body
+    body: html
   }
 }
 
-// Example responses
+// Other example responses
 
 /* Forward requester to a new path
 exports.handler = async function http (req) {
@@ -57,18 +50,8 @@ exports.handler = arc.http.async (http)
 async function http (req) {
   return {
     statusCode: 201,
-    headers: {'content-type': 'application/json; charset=utf8'},
-    body: JSON.stringify({ok: true}),
+    json: { ok: true },
     cors: true,
-  }
-}
-*/
-
-/* Deliver client-side JS
-exports.handler = async function http (req) {
-  return {
-    headers: {'content-type': 'text/javascript; charset=utf8'},
-    body: 'console.log("Hello world!")',
   }
 }
 */

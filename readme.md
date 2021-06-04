@@ -1,8 +1,3 @@
----
-category: starter
-tags: node
----
-
 <img src="https://static.begin.app/node-hello-world/readme-banner.png" width="813">
 
 $BADGE

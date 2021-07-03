@@ -6,6 +6,11 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 
+default-config: &default-config
+  docker:
+    - image: circleci/node:10.16.0
+  working_directory: ~/repo
+  
 jobs:
   build:
     steps:

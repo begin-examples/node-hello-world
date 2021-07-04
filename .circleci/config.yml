@@ -45,16 +45,16 @@ jobs:
     docker:
     - image: cypress/base:10
     steps:
-    - checkout
-    - restore_cache:
-        keys:
-          - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-          - deps-{{ checksum "package.json" }}-
-          - deps-
-    - run:
-        name: Install dependencies
-        command: |
-          npm install --no-save
+    #- checkout
+    #- restore_cache:
+    #    keys:
+    #      - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+    #      - deps-{{ checksum "package.json" }}-
+     #     - deps-
+    #- run:
+    #    name: Install dependencies
+     #   command: |
+     #     npm install --no-save
     - run:
         name: Start Node Server
         command: npm start

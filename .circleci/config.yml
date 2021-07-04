@@ -45,7 +45,7 @@ jobs:
     docker:
     - image: cypress/base:10
     steps:
-    #- checkout
+    - checkout
     #- restore_cache:
     #    keys:
     #      - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}

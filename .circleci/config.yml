@@ -46,11 +46,11 @@ jobs:
     - image: cypress/base:10
     steps:
     - checkout
-    #- restore_cache:
-    #    keys:
-    #      - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-    #      - deps-{{ checksum "package.json" }}-
-     #     - deps-
+    - restore_cache:
+        keys:
+          - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          - deps-{{ checksum "package.json" }}-
+          - deps-
     #- run:
     #    name: Install dependencies
      #   command: |

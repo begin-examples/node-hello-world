@@ -23,7 +23,7 @@ jobs:
     - run:
         name: Run Cypress
         command: |
-          cypress run
+          $(yarn bin)/cypress run
 
 workflows:
   version: 2

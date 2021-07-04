@@ -39,6 +39,10 @@ jobs:
         command: |
           $(yarn bin)/cypress run
 
+  deploy-dev:
+      <<: *default-config
+      <<: *deploy-steps
+
 workflows:
   version: 2
   build-and-deploy:

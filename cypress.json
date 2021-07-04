@@ -1,1 +1,7 @@
-{}
+{
+    "testFiles": "./*.feature",
+    "chromeWebSecurity": false,
+    "env": {
+        "TAGS": "@dev-test-case"
+    }
+}

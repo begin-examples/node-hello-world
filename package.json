@@ -21,6 +21,16 @@
     "@architect/sandbox": "^3.3.6",
     "@begin/data": "latest",
     "cross-env": "^7.0.3",
-    "cypress": "^7.3.0"
+    "cypress": "^7.3.0",
+    "cypress-cucumber-preprocessor": "^4.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

@@ -41,7 +41,7 @@ jobs:
       #    command: |
       #      npm run lint
 
-  cypress-test:
+  cypress-test-dev:
     docker:
     - image: cypress/base:10
     steps:
@@ -90,4 +90,6 @@ workflows:
             branches:
               only:
                - main
-      - cypress-test
+      - cypress-test-dev:
+          requires:
+            - deploy-dev

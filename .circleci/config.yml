@@ -47,4 +47,9 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
+      - deploy-dev:
+          filters:
+            branches:
+              ignore:
+                - main
       - cypress-test

@@ -18,4 +18,10 @@ jobs:
          name: Install dependencies
          command: |
            npm install --no-save
+           
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
       - cypress/run

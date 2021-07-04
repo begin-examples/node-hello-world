@@ -63,7 +63,13 @@ jobs:
         name: Run Cypress
         command: |
           $(yarn bin)/cypress run
+  deploy-dev:
+    <<: *default-config
+    <<: *deploy-steps
 
+  deploy-sandbox:
+    <<: *default-config
+    <<: *deploy-steps
 
 workflows:
   version: 2

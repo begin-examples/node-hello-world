@@ -20,6 +20,11 @@ jobs:
         name: Start Node Server
         command: |
           npm start
+          background: true
+    - run:
+        name: Run Cypress
+        command: |
+          cypress run
 
 workflows:
   version: 2

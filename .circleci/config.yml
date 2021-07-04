@@ -24,4 +24,4 @@ workflows:
         - run:
             name: Run Cypress
             command: |
-              npx cypress run
+              cypress run

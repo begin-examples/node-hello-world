@@ -1,4 +1,5 @@
-version: 2.1
+default-config: &default-config
+  working_directory: ~/repo
 
 jobs:
   cypress-test:

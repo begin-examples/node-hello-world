@@ -51,10 +51,10 @@ jobs:
           - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
           - deps-{{ checksum "package.json" }}-
           - deps-
-    #- run:
-    #    name: Install dependencies
-     #   command: |
-     #     npm install --no-save
+    - run:
+        name: Install dependencies
+        command: |
+          npm install --no-save
     - run:
         name: Start Node Server
         command: npm start

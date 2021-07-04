@@ -1,21 +1,29 @@
 default-config: &default-config
   working_directory: ~/repo
 
-deploy-steps: &deploy-steps
-  steps:
-    - attach_workspace:
-        at: .
-    - run:
-        name: Install deploy dependencies
-        command: |
-          npm install --no-save
-
-    - run:
-        name: Start Node Server
-        command: npm start
-        background: true
-
 jobs:
+  build:
+    <<: *default-config
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+            - deps-{{ checksum "package.json" }}-
+            - deps-
+      - run:
+          name: Install dependencies
+          command: |
+            npm install --no-save
+      - save_cache:
+          key: deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      #- run:
+      #    name: Run the Linter
+      #    command: |
+      #      npm run lint
+
   cypress-test:
     docker:
     - image: cypress/base:10
@@ -39,17 +47,10 @@ jobs:
         command: |
           $(yarn bin)/cypress run
 
-  deploy-dev:
-      <<: *default-config
-      <<: *deploy-steps
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - deploy-dev:
-          filters:
-            branches:
-              ignore:
-                - main
+      - build
       - cypress-test

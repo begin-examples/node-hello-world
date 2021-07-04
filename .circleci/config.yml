@@ -18,7 +18,4 @@ jobs:
          name: Install dependencies
          command: |
            npm install --no-save
-      - run:
-         name: Run Cypress
-         command: |
-          $(yarn bin)/cypress run
+      - cypress/run

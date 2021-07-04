@@ -1,6 +1,6 @@
 .arc-env
 .DS_Store
 node_modules
-/cypress/videos/*
-/cypress/screenshots/*
+/cypress/videos
+/cypress/screenshots
 /cypress/cucumber-json

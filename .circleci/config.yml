@@ -13,13 +13,13 @@ jobs:
           - deps-{{ checksum "package.json" }}-
           - deps-
     - run:
-        name: Start Node Server
-        command: |
-          npm start
-    - run:
         name: Install dependencies
         command: |
           npm install --no-save
+    - run:
+        name: Start Node Server
+        command: |
+          npm start
 
 workflows:
   version: 2

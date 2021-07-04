@@ -1,6 +1,20 @@
 default-config: &default-config
   working_directory: ~/repo
 
+deploy-steps: &deploy-steps
+  steps:
+    - attach_workspace:
+        at: .
+    - run:
+        name: Install deploy dependencies
+        command: |
+          npm install --no-save
+
+    - run:
+        name: Start Node Server
+        command: npm start
+        background: true
+
 jobs:
   cypress-test:
     docker:

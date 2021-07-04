@@ -14,7 +14,10 @@ jobs:
       - run:
          command: npm start
          background: true
-       
+      - run:
+         name: Install dependencies
+         command: |
+           npm install --no-save
       - run:
          name: Run Cypress
          command: |

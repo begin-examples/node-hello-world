@@ -18,9 +18,8 @@ jobs:
           npm install --no-save
     - run:
         name: Start Node Server
-        command: |
-          npm start
-          background: true
+        command: npm start
+        background: true
     - run:
         name: Run Cypress
         command: |

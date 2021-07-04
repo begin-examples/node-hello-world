@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1
+  cypress: cypress-io/cypress@1
 jobs:
   build:
     executor:
@@ -18,10 +19,4 @@ jobs:
          name: Install dependencies
          command: |
            npm install --no-save
-           
-orbs:
-  cypress: cypress-io/cypress@1
-workflows:
-  build:
-    jobs:
       - cypress/run

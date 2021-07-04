@@ -1,10 +1,27 @@
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
 
 workflows:
   build:
     jobs:
-      - cypress/run:
-          start: npm start
-          wait-on: 'http://localhost:3333'
+      cypress-test:
+        docker:
+        - image: cypress/base:10
+        steps:
+        - checkout
+        - restore_cache:
+            keys:
+              - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+              - deps-{{ checksum "package.json" }}-
+              - deps-
+        - run:
+            name: Start Node Server
+            command: |
+              npm start
+        - run:
+            name: Install dependencies
+            command: |
+              npm install --no-save
+        - run:
+            name: Run Cypress
+            command: |
+             npx cypress run

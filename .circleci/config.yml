@@ -3,6 +3,21 @@ default-config: &default-config
     - image: circleci/node:10.16.0
   working_directory: ~/repo
 
+deploy-steps: &deploy-steps
+  steps:
+    - attach_workspace:
+        at: .
+    - run:
+        name: Install deploy dependencies
+        command: |
+          npm install
+
+#    - run:
+#        name: Upload the bundle
+#        command: |
+#          cd deploy
+#          node deploy.js
+
 jobs:
   build:
     <<: *default-config

@@ -76,4 +76,18 @@ workflows:
   build-and-deploy:
     jobs:
       - build
+      - deploy-dev:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
+      - deploy-sandbox:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+               - main
       - cypress-test

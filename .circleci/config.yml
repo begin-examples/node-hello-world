@@ -62,7 +62,7 @@ jobs:
     - run:
         name: Run Cypress
         command: |
-          $(yarn bin)/cypress run --env TAGS='@dev-test-case'
+          $(yarn bin)/cypress run --env TAGS='@sandbox-test-case'
   deploy-dev:
     <<: *default-config
     <<: *deploy-steps

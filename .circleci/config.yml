@@ -63,9 +63,7 @@ jobs:
         name: Run Cypress
         command: |
           $(yarn bin)/cypress run --env TAGS='@dev-test-case'
-          
-          
- cypress-test-sandbox:
+  cypress-test-sandbox:
     docker:
     - image: cypress/base:10
     steps:

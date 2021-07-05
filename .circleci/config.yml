@@ -62,7 +62,32 @@ jobs:
     - run:
         name: Run Cypress
         command: |
-          $(yarn bin)/cypress run --env TAGS='@sandbox-test-case'
+          $(yarn bin)/cypress run --env TAGS='@dev-test-case'
+          
+          
+ cypress-test-sandbox:
+    docker:
+    - image: cypress/base:10
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          - deps-{{ checksum "package.json" }}-
+          - deps-
+    - run:
+        name: Install dependencies
+        command: |
+          npm install --no-save
+    - run:
+        name: Start Node Server
+        command: npm start
+        background: true
+    - run:
+        name: Run Cypress
+        command: |
+          $(yarn bin)/cypress run --env TAGS='@sandbox-test-case'      
+    
   deploy-dev:
     <<: *default-config
     <<: *deploy-steps
@@ -93,3 +118,7 @@ workflows:
       - cypress-test-dev:
           requires:
             - deploy-dev
+            
+      - cypress-test-sandbox:
+          requires:
+            - deploy-sandbox
